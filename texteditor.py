@@ -16,10 +16,16 @@ def saveas():
     file1.close()
 
 
-def changetheme():
+def darktheme():
     global text
     text.config(background='black', foreground='white',
                 insertbackground='white')
+
+
+def lighttheme():
+    global text
+    text.config(background='white', foreground='black',
+                insertbackground='black')
 
 
 def FontHelvetica():
@@ -58,13 +64,18 @@ button = Button(text_editor, text="Save", command=saveas)
 button.grid(row=1, column=1)
 
 
-# Add theme changer
-theme = Button(text_editor, text="Theme", command=changetheme)
+# Dark mode
+theme = Button(text_editor, text="Dark", command=darktheme)
 theme.grid(row=1, column=2)
+
+# Light mode
+theme = Button(text_editor, text="Light", command=lighttheme)
+theme.grid(row=1, column=3)
+
 
 # Add font menu
 font = Menubutton(text_editor, text="Font")
-font.grid(row=1, column=3)
+font.grid(row=1, column=4)
 font.menu = Menu(font, tearoff=0)
 font["menu"] = font.menu
 Helvetica = IntVar()
